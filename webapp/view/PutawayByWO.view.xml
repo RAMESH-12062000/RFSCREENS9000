@@ -1,0 +1,363 @@
+<mvc:View
+    controllerName="com.app.rfscreens.controller.PutawayByWO"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:ndc="sap.ndc"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    height="100%"
+>
+    <tnt:ToolPage id="idToolPagePutawayByWO">
+        <tnt:header>
+            <tnt:ToolHeader id="idtntToolHeaderPutawayByWO">
+                <Image
+                    id="_IDGenImage1PutawayByWO"
+                    height="1.5rem"
+                    class="sapUiSmallMarginBegin"
+                    src="https://artihcus.com/assets/img/AG-logo.png"
+                />
+                <tnt:ToolHeaderUtilitySeparator
+                    id="idToolHeaderUtilitySeparatorPutawayByWO"
+                />
+                <ToolbarSpacer id="idToolbarSpacerPutawayByWO">
+                    <layoutData>
+                        <OverflowToolbarLayoutData
+                            id="idOverflowToolbarLayoutData1PutawayByWO"
+                            priority="NeverOverflow"
+                            minWidth="20px"
+                        />
+                    </layoutData>
+                </ToolbarSpacer>
+                <Avatar
+                    id="_IDGenAvatar1PutawayByWO"
+                    displaySize="XS"
+                    press="onAvatarPressed"
+                    tooltip="Profile"
+                />
+            </tnt:ToolHeader>
+        </tnt:header>
+
+        <tnt:mainContents>
+            <VBox
+                id="idWarehouseOderNoformBox"
+                class="putawayContainer"
+            >
+                <VBox
+                    id="idVBOXwarhouseTitle"
+                    class="warehouseOrderTitle"
+                >
+                    <Title
+                        id="idWarehouseOrder"
+                        text="Warehouse Order:"
+                        level="H2"
+                    />
+                </VBox>
+                <VBox
+                    id="idVBoxWarehouseON"
+                    class="formContainer"
+                >
+                    <VBox
+                        id="idVBOXwarhouse"
+                        class="formBox"
+                    >
+                        <Label
+                            id="idLableWarehouse"
+                            text="Warehouse Order Number:"
+                            class="formLabel"
+                        />
+                        <HBox
+                            id="idHBoxWarehouseorderno"
+                            alignItems="Center"
+                            class="formHBox"
+                            justifyContent="Start"
+                            width="auto"
+                        >
+                            <Input
+                                id="idInputWarhouseOrderNo"
+                                placeholder="Enter Warehouse order no..."
+                                class="formInput"
+                                liveChange="onLiveChange"
+                                width="120%"
+                            />
+                            <!-- Barcode Button -->
+                            <ndc:BarcodeScannerButton
+                                id="sampleBarcodeScannerButton"
+                                scanSuccess="onScanSuccess"
+                                scanFail="onScanError"
+                                inputLiveUpdate="onScanLiveupdate"
+                                dialogTitle="Enter Warehouse Oder Number:"
+                                class="customMargin"
+                            />
+                            <!-- Submit Button -->
+                            <Button
+                                id="idSubmitBtnWarhouseON"
+                                text="Submit"
+                                press="onSubmitPress"
+                            />
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </VBox>
+
+            <ScrollContainer
+                id="idPage2"
+                horizontal="false"
+                vertical="true"
+                height="100%"
+                class="sapUiContentPadding"
+                visible="false"
+            >
+                <VBox
+                    id="idVBoxBackBtn"
+                    class="sapUiSmallMargin"
+                >
+                    <!-- Back Button -->
+                    <Button
+                        id="idBackBtn"
+                        press="onBackPress"
+                        class="sapUiTinyMarginBottom"
+                        icon="sap-icon://nav-back"
+                        type="Transparent"
+                    />
+                </VBox>
+
+                <!-- Centered Form Box -->
+                <VBox
+                    id="idCenteredFormBox"
+                    class="centeredFormBox"
+                >
+                    <!-- Form Box to hold the input fields -->
+                    <VBox
+                        id="idFormBox"
+                        class="sapUiSmallMargin formBox"
+                    >
+                        <!-- SrSc HU Section -->
+                        <HBox class="sapUiSmallMarginBottom">
+                            <Label
+                                text="SrSc HU"
+                                class="sapUiSmallMarginEnd"
+                            />
+                            <Input
+                                id="idSrScHuInput"
+                                width="10rem"
+                            />
+                        </HBox>
+
+                        <!-- Dst Bin Section with Storage Type, Section, and Bin -->
+                        <HBox class="sapUiSmallMarginBottom">
+                            <Label
+                                text="Dst Bin"
+                                class="sapUiSmallMarginEnd"
+                            />
+                            <Input
+                                id="idStorageTypeInput"
+                                placeholder="Stor type"
+                                width="5rem"
+                                class="sapUiTinyMarginEnd"
+                            />
+                            <Input
+                                id="idSectionInput"
+                                placeholder="Sec"
+                                width="5rem"
+                                class="sapUiTinyMarginEnd"
+                            />
+                            <Input
+                                id="idBinInput"
+                                placeholder="Bin"
+                                width="7rem"
+                            />
+                        </HBox>
+
+                        <!-- Dest Hu Section -->
+                        <HBox class="sapUiSmallMarginBottom">
+                            <Label
+                                text="Dest Hu"
+                                class="sapUiSmallMarginEnd"
+                            />
+                            <Input
+                                id="idDestHuInput"
+                                width="15rem"
+                            />
+                        </HBox>
+                        <Button
+                            id="idBtnHuListBtn"
+                            text="HuList"
+                            press="onPressHUList"
+                        />
+                    </VBox>
+                </VBox>
+            </ScrollContainer>
+            <ScrollContainer
+                id="idPage3HUList"
+                horizontal="false"
+                vertical="true"
+                height="100%"
+                class="sapUiContentPadding"
+                visible="false"
+            >
+            <VBox
+                    id="idVBoxBackBtn2"
+                    class="sapUiSmallMargin"
+                >
+                    <!-- Back Button -->
+                    <Button
+                        id="idBackBtn2"
+                        press="onBackPressPage2"
+                        class="sapUiTinyMarginBottom"
+                        icon="sap-icon://nav-back"
+                        type="Transparent"
+                    />
+                </VBox>
+                <VBox id="idVBoxHUListable">
+                    <form:SimpleForm
+                        id="HuListSimpleFormToolbar"
+                        editable="true"
+                        layout="ResponsiveGridLayout"
+                        labelSpanXL="4"
+                        labelSpanL="3"
+                        labelSpanM="4"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="0"
+                        emptySpanL="4"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        columnsXL="2"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false"
+                        ariaLabelledBy="Title1"
+                    >
+                        <form:toolbar>
+                            <Toolbar
+                                id="TB4"
+                                class="HeaderToolBar"
+                            >
+                                <Title
+                                    id="Title1455896"
+                                    text="HU NUMBERS LIST:"
+                                />
+                                <ToolbarSpacer id="IDGenToolbar345" />
+                                <Button
+                                    id="idRefrehshBtnReservations"
+                                    press="onRefreshReservations"
+                                    icon="sap-icon://synchronize"
+                                />
+                                <SearchField
+                                    id="idSearchFieldFromHUNumbers"
+                                    liveChange="onLiveHUNumbersList"
+                                    placeholder="Search Anything..."
+                                    width="25%"
+                                />
+                            </Toolbar>
+                        </form:toolbar>
+                        <form:content>
+                            <Toolbar
+                                id="IDGenToolbar4"
+                                ariaLabelledBy="Title2"
+                            >
+                                <Title
+                                    id="Title5"
+                                    text="HU Numbers List:"
+                                />
+                            </Toolbar>
+                            <Table
+                                id="idHuListTable"
+                                width="100%"
+                                items="{/ZEWM_T_RESERVSSet}"
+                            >
+                                <columns>
+                                    <Column id="IDGenColumn001">
+                                        <Text
+                                            id="IDGenText001"
+                                            text="Serial No:"
+                                            class="HedingNameColor"
+                                        />
+                                    </Column>
+                                    <Column id="IDGenColumn002">
+                                        <Text
+                                            id="IDGenText002"
+                                            text="HU Number:"
+                                            class="HedingNameColor"
+                                        />
+                                    </Column>
+                                    <Column id="IDGenColumn003">
+                                        <Text
+                                            id="IDGenText003"
+                                            text="Product:"
+                                            class="HedingNameColor"
+                                        />
+                                    </Column>
+                                    <Column id="IDGenColumn004">
+                                        <Text
+                                            id="IDGenText004"
+                                            text="Product Discrption:"
+                                            class="HedingNameColor"
+                                        />
+                                    </Column>
+                                    <Column id="IDGenColumn005">
+                                        <Text
+                                            id="IDGenText005"
+                                            text="Quantity:"
+                                            class="HedingNameColor"
+                                        />
+                                    </Column>
+                                    <Column id="IDGenColumn006">
+                                        <Text
+                                            id="IDGenText006"
+                                            text="Units of Measur:"
+                                            class="HedingNameColor"
+                                        />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem
+                                        id="IDGenAvailColumnListItem1"
+                                    >
+                                        <cells>
+                                            <Text
+                                                id="IDGenAvailText1"
+                                                text="{Vendorname}"
+                                            />
+                                            <Text
+                                                id="IDGenAvailText2"
+                                                text="{Vendornumber}"
+                                            />
+                                            <Text
+                                                id="IDGenAvailText3"
+                                                text="{Drivername}"
+                                            />
+                                            <Text
+                                                id="IDGenAvailText4"
+                                                text="{Drivernumber}"
+                                            />
+                                            <Text
+                                                id="IDGenAvailText5"
+                                                text="{Vehicletype}"
+                                            />
+                                            <Text
+                                                id="IDGenAvailText6"
+                                                text="{Vehiclenumber}"
+                                            />
+                                            <Text
+                                                id="IDGenAvailText7"
+                                                text="{Servicetype}"
+                                            />
+                                            <Text
+                                                id="IDGenAvailText8"
+                                                text="{Intime}"
+                                            />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </form:content>
+                    </form:SimpleForm>
+                </VBox>
+            </ScrollContainer>
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>

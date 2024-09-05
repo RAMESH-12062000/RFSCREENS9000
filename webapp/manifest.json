@@ -110,6 +110,13 @@
           "target": [
             "TargetHUQuerypage"
           ]
+        },
+        {
+          "name": "RoutePutawayByWO",
+          "pattern": "RoutePutawayByWO",
+          "target": [
+            "TargetPutawayByWO"
+          ]
         }
       ],
       "targets": {
@@ -133,6 +140,13 @@
           "clearControlAggregation": false,
           "viewId": "HuQuery",
           "viewName": "HuQuery"
+        },
+        "TargetPutawayByWO": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "PutawayByWO",
+          "viewName": "PutawayByWO"
         }
       }
     },

@@ -274,34 +274,6 @@ sap.ui.define([
 
 
 
-
-            applyStoredColors: function () {
-                // Apply stored theme color
-                var sStoredThemeColor = localStorage.getItem("themeColor");
-                if (sStoredThemeColor) {
-                    this.applyThemeColor(sStoredThemeColor);
-                }
-
-                // Apply stored tile colors
-                var storedColors = localStorage.getItem("tileColors");
-                if (storedColors) {
-                    var tileColors = JSON.parse(storedColors);
-                    for (var sTileId in tileColors) {
-                        if (tileColors.hasOwnProperty(sTileId)) {
-                            this.applyColorToTile(sTileId, tileColors[sTileId]);
-                        }
-                    }
-                }
-            },
-            onOpenThemeDialog: function () {
-                this.byId("themeTileDialog").open();
-            },
-
-            onPaletteIconBtnTilePress: function (oEvent) {
-                this._currentTileId = oEvent.getSource().getParent().getParent().getId();
-                this.byId("themeTileDialog").open();
-            },
-
             // onColorOptionSelect: function (oEvent) {
             //     var oCheckBox = oEvent.getSource();
             //     var oColorOptions = this.byId("colorOptions").getItems();
@@ -403,6 +375,33 @@ sap.ui.define([
             //     // Close the dialog
             //     this.byId("themeTileDialog").close();
             // },
+            applyStoredColors: function () {
+                // Apply stored theme color
+                var sStoredThemeColor = localStorage.getItem("themeColor");
+                if (sStoredThemeColor) {
+                    this.applyThemeColor(sStoredThemeColor);
+                }
+
+                // Apply stored tile colors
+                var storedColors = localStorage.getItem("tileColors");
+                if (storedColors) {
+                    var tileColors = JSON.parse(storedColors);
+                    for (var sTileId in tileColors) {
+                        if (tileColors.hasOwnProperty(sTileId)) {
+                            this.applyColorToTile(sTileId, tileColors[sTileId]);
+                        }
+                    }
+                }
+            },
+            onOpenThemeDialog: function () {
+                this.byId("themeTileDialog").open();
+            },
+
+            onPaletteIconBtnTilePress: function (oEvent) {
+                this._currentTileId = oEvent.getSource().getParent().getParent().getId();
+                this.byId("themeTileDialog").open();
+            },
+
             onApplyColor: function () {
                 var oView = this.getView();
                 var oColorPicker = oView.byId("colorPicker");
@@ -569,8 +568,12 @@ sap.ui.define([
                 // Reset the color picker to its default value
                 oColorPicker.setColorString("#FFFFFF"); // Set to white or any default color
                 oColorPicker.setVisible(true);
-            }
+            },
 
+            onPutawayByWO: function () {
+                var oRouter = UIComponent.getRouterFor(this);
+                oRouter.navTo("RoutePutawayByWO");
+            }
 
 
 
