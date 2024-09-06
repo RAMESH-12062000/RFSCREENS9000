@@ -570,6 +570,8 @@ sap.ui.define([
                 oColorPicker.setVisible(true);
             },
 
+
+            
             onPutawayByWO: function () {
                 var oRouter = UIComponent.getRouterFor(this);
                 oRouter.navTo("RoutePutawayByWO");

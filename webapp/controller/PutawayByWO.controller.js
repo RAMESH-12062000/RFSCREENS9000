@@ -8,46 +8,95 @@ sap.ui.define(
     return BaseController.extend("com.app.rfscreens.controller.PutawayByWO", {
       onInit: function () {
       },
-      onBackPress: function () {
-        // Hide the ScrollContainer
-        this.byId("idPage2").setVisible(false);
-
-        // Show the warehouse order input section again
-        this.byId("idWarehouseOderNoformBox").setVisible(true);
-      },
-      onBackPressPage2: function () {
-        // Hide the ScrollContainer
-        this.byId("idPage2").setVisible(false);
-
-        // Show the warehouse order input section again
-        this.byId("idWarehouseOderNoformBox").setVisible(true);
-      },
       onAfterRendering: function () {
-        // Initially hide the scroll container
-        this.byId("idPage2").setVisible(false);
+        this.byId("idPage1ScannerFormBox").setVisible(true);
       },
-      onSubmitPress: function () {
-        // Get the form VBox and scroll container by their IDs
-        var oVBoxForm = this.byId("idWarehouseOderNoformBox");
-        var oScrollContainer = this.byId("idPage2");
-
-        // Hide the form VBox
-        oVBoxForm.setVisible(false);
-
-        // Show the scroll container
-        oScrollContainer.setVisible(true);
+      //Back Btn from 1st ScrollContainer Page 1 =>idPage1ScannerFormBox
+      onPressBackBtnScanerFormBox: function () {
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter.navTo("RouteView1");
       },
-      onPressHUList: function(){
-        var oVBoxForm = this.byId("idWarehouseOderNoformBox");
-        var oScrollContainer = this.byId("idPage2");
-        var oScrollContainer1 = this.byId("idPage3HUList");
 
-        // Hide the form VBox
-        oVBoxForm.setVisible(false);
-        oScrollContainer.setVisible(false);
+      //Back Btn from ScrollContainer Page 2 =>idPage2HUDetails 
+      onBackPressHUDetails: function () {
+        var oScrollContainer1 = this.byId("idPage1ScannerFormBox");
+        var oScrollContainer2 = this.byId("idPage2HUDetails");
 
-        // Show the scroll container
+        // show the Scanner form VBox
         oScrollContainer1.setVisible(true);
+
+        //Hide the HUDetails scroll container
+        oScrollContainer2.setVisible(false);
+      },
+
+      //Back Btn from ScrollContainer Page 3=>idPage3HUListTable
+      onBackPressHUListTable: function () {
+        var oScrollContainer3 = this.byId("idPage3HUListTable");
+        var oScrollContainer2 = this.byId("idPage2HUDetails");
+
+        // show the HUDetails Page2
+        oScrollContainer2.setVisible(true);
+
+        //Hide the HUListTable Page3
+        oScrollContainer3.setVisible(false);
+      },
+
+      //Back Btn from ScrollContainer Page 4=>idPage4NewHUNumber
+      onBackBtnPressNewHUNumber: function () {
+        var oScrollContainer4 = this.byId("idPage4NewHUNumber");
+        var oScrollContainer2 = this.byId("idPage2HUDetails");
+
+        // show the HUDetails Page2
+        oScrollContainer2.setVisible(true);
+
+        //Hide the NewHuNumber Page3
+        oScrollContainer4.setVisible(true);
+      },
+
+      //Submit Btn from ScrollContainer Page 1=> idPage1ScannerFormBox..
+      onSubmitPress: function () {
+        var oScrollContainer1 = this.byId("idPage1ScannerFormBox");
+        var oScrollContainer2 = this.byId("idPage2HUDetails");
+
+        // Hide the Scanner form VBox
+        oScrollContainer1.setVisible(false);
+
+        // Show the HUDetails scroll container
+        oScrollContainer2.setVisible(true);
+      },
+
+      //HUListTableBtn from ScrollContainer Page 2 =>idPage2HUDetails
+      onPressHUListTable: function () {
+        var oScrollContainer2 = this.byId("idPage2HUDetails");
+        var oScrollContainer3 = this.byId("idPage3HUListTable");
+
+        // Hide the form VBox
+        oScrollContainer2.setVisible(false);
+        //oScrollContainer.setVisible(false);
+
+        // Show the scroll container
+        oScrollContainer3.setVisible(true);
+      },
+
+      //NewHUNumberBtn from ScrollContainer Page 2=>idPage2HUDetails 
+      onPressNewHUNumberBtn: function () {
+        var oScrollContainer4 = this.byId("idPage4NewHUNumber");
+        var oScrollContainer2 = this.byId("idPage2HUDetails");
+        // Hide the form VBox
+        oScrollContainer2.setVisible(false);
+
+        // Show the scroll container
+        oScrollContainer4.setVisible(true);
+      },
+
+      onEnterNewHUNUmberPress: function(){
+        var oScrollContainer5 = this.byId("idPage5VerifyHUNumber");
+        var oScrollContainer4 = this.byId("idPage4NewHUNumber"); 
+        // Hide the form VBox
+        oScrollContainer4.setVisible(false);
+
+        // Show the scroll container
+        oScrollContainer5.setVisible(true);
       }
 
     });

@@ -136,7 +136,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
+  padding: 30px;
 }
 .warehouseOrderTitle {
   align-self: flex-start;
@@ -153,7 +153,7 @@
   border-radius: 8px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
   width: 400px;
-  margin-bottom: 14rem;
+  margin-top: 4rem;
 }
 .formLabel {
   margin-bottom: 7px;
@@ -195,9 +195,66 @@
   }
   .centeredFormBox {
     height: auto; /* Adjusted for mobile if needed */
-    margin-top: 2rem; /* Adjust margin to ensure it's centered properly on small screens */
+    margin-top: 4rem; /* Adjust margin to ensure it's centered properly on small screens */
   }
 }
+.UnitsofMeasure {
+  margin-left: 0.3rem;
+}
+
+
+
+
+/* ScrollContainer Page 5 CSS methods */
+.verifyHuNumberContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+}
+/* Form Header Styling */
+.formHeader {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+/* Box around the form */
+.verifyHuNumberBox {
+  border: 2px solid black;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  background-color: #f9f9f9;
+}
+.formLabel {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+/* Button Styling */
+.formButton {
+  margin-left: 1rem;
+}
+@media (max-width: 600px) {
+  .verifyHuNumberContainer {
+    margin: 1rem;
+  }
+  .verifyHuNumberBox {
+    padding: 15px; /* Adjust padding for mobile */
+    width: 100%; /* Ensure full width with some margin on the sides */
+    margin: 0 auto; /* Center the box */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

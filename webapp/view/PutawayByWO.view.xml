@@ -1,4 +1,5 @@
 <mvc:View
+    xmlns:table="sap.ui.table"
     controllerName="com.app.rfscreens.controller.PutawayByWO"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mvc="sap.ui.core.mvc"
@@ -39,71 +40,83 @@
                 />
             </tnt:ToolHeader>
         </tnt:header>
-
         <tnt:mainContents>
-            <VBox
-                id="idWarehouseOderNoformBox"
-                class="putawayContainer"
+            <ScrollContainer
+                id="idPage1ScannerFormBox"
+                horizontal="false"
+                vertical="true"
+                height="100%"
+                class="sapUiContentPadding"
+                visible="true"
             >
                 <VBox
-                    id="idVBOXwarhouseTitle"
-                    class="warehouseOrderTitle"
+                    id="idWarehouseOderNoformBox"
+                    class="putawayContainer"
                 >
-                    <Title
-                        id="idWarehouseOrder"
-                        text="Warehouse Order:"
-                        level="H2"
-                    />
-                </VBox>
-                <VBox
-                    id="idVBoxWarehouseON"
-                    class="formContainer"
-                >
-                    <VBox
-                        id="idVBOXwarhouse"
-                        class="formBox"
+                    <HBox
+                        id="idHBoxWarhouseTitle"
+                        class="warehouseOrderTitle"
+                        alignItems="Center"
                     >
-                        <Label
-                            id="idLableWarehouse"
-                            text="Warehouse Order Number:"
-                            class="formLabel"
+                        <Button
+                            id="IdBackBtnToMainPage"
+                            icon="sap-icon://nav-back"
+                            type="Transparent"
+                            press="onPressBackBtnScanerFormBox"
                         />
-                        <HBox
-                            id="idHBoxWarehouseorderno"
-                            alignItems="Center"
-                            class="formHBox"
-                            justifyContent="Start"
-                            width="auto"
+                        <Title
+                            id="idWarehouseOrder"
+                            text="Warehouse Order:"
+                            level="H2"
+                        />
+                    </HBox>
+                    <VBox
+                        id="idVBoxWarehouseON"
+                        class="formContainer"
+                    >
+                        <VBox
+                            id="idVBOXwarhouse"
+                            class="formBox"
                         >
-                            <Input
-                                id="idInputWarhouseOrderNo"
-                                placeholder="Enter Warehouse order no..."
-                                class="formInput"
-                                liveChange="onLiveChange"
-                                width="120%"
+                            <Label
+                                id="idLableWarehouse"
+                                text="Warehouse Order Number:"
+                                class="formLabel"
                             />
-                            <!-- Barcode Button -->
-                            <ndc:BarcodeScannerButton
-                                id="sampleBarcodeScannerButton"
-                                scanSuccess="onScanSuccess"
-                                scanFail="onScanError"
-                                inputLiveUpdate="onScanLiveupdate"
-                                dialogTitle="Enter Warehouse Oder Number:"
-                                class="customMargin"
-                            />
-                            <!-- Submit Button -->
-                            <Button
-                                id="idSubmitBtnWarhouseON"
-                                text="Submit"
-                                press="onSubmitPress"
-                            />
-                        </HBox>
+                            <HBox
+                                id="idHBoxWarehouseorderno"
+                                alignItems="Center"
+                                class="formHBox"
+                                justifyContent="Start"
+                                width="auto"
+                            >
+                                <Input
+                                    id="idInputWarhouseOrderNo"
+                                    placeholder="Enter Warehouse order no..."
+                                    class="formInput"
+                                    liveChange="onLiveChange"
+                                    width="120%"
+                                />
+                                <ndc:BarcodeScannerButton
+                                    id="sampleBarcodeScannerButton"
+                                    scanSuccess="onScanSuccess"
+                                    scanFail="onScanError"
+                                    inputLiveUpdate="onScanLiveupdate"
+                                    dialogTitle="Enter Warehouse Order Number:"
+                                    class="customMargin"
+                                />
+                                <Button
+                                    id="idSubmitBtnWarhouseON"
+                                    text="Submit"
+                                    press="onSubmitPress"
+                                />
+                            </HBox>
+                        </VBox>
                     </VBox>
                 </VBox>
-            </VBox>
-
+            </ScrollContainer>
             <ScrollContainer
-                id="idPage2"
+                id="idPage2HUDetails"
                 horizontal="false"
                 vertical="true"
                 height="100%"
@@ -117,7 +130,7 @@
                     <!-- Back Button -->
                     <Button
                         id="idBackBtn"
-                        press="onBackPress"
+                        press="onBackPressHUDetails"
                         class="sapUiTinyMarginBottom"
                         icon="sap-icon://nav-back"
                         type="Transparent"
@@ -185,177 +198,389 @@
                         <Button
                             id="idBtnHuListBtn"
                             text="HuList"
-                            press="onPressHUList"
+                            press="onPressHUListTable"
+                        />
+                        <Button
+                            id="idBtnNewHUNumberBtn"
+                            text="New HUNumber"
+                            press="onPressNewHUNumberBtn"
                         />
                     </VBox>
                 </VBox>
             </ScrollContainer>
             <ScrollContainer
-                id="idPage3HUList"
+                id="idPage3HUListTable"
                 horizontal="false"
                 vertical="true"
                 height="100%"
                 class="sapUiContentPadding"
                 visible="false"
             >
-            <VBox
-                    id="idVBoxBackBtn2"
-                    class="sapUiSmallMargin"
-                >
-                    <!-- Back Button -->
-                    <Button
-                        id="idBackBtn2"
-                        press="onBackPressPage2"
-                        class="sapUiTinyMarginBottom"
-                        icon="sap-icon://nav-back"
-                        type="Transparent"
-                    />
-                </VBox>
+                <Button
+                    id="idBackBtn2"
+                    press="onBackPressHUListTable"
+                    class="sapUiTinyMarginBottom"
+                    icon="sap-icon://nav-back"
+                    type="Transparent"
+                />
                 <VBox id="idVBoxHUListable">
-                    <form:SimpleForm
-                        id="HuListSimpleFormToolbar"
-                        editable="true"
-                        layout="ResponsiveGridLayout"
-                        labelSpanXL="4"
-                        labelSpanL="3"
-                        labelSpanM="4"
-                        labelSpanS="12"
-                        adjustLabelSpan="false"
-                        emptySpanXL="0"
-                        emptySpanL="4"
-                        emptySpanM="0"
-                        emptySpanS="0"
-                        columnsXL="2"
-                        columnsL="1"
-                        columnsM="1"
-                        singleContainerFullSize="false"
-                        ariaLabelledBy="Title1"
+                    <Toolbar
+                        id="TB4"
+                        class="HeaderToolBar"
                     >
-                        <form:toolbar>
-                            <Toolbar
-                                id="TB4"
-                                class="HeaderToolBar"
-                            >
-                                <Title
-                                    id="Title1455896"
-                                    text="HU NUMBERS LIST:"
+                        <Title
+                            id="Title1455896"
+                            text="HU NUMBERS LIST:"
+                        />
+                        <ToolbarSpacer id="IDGenToolbar345" />
+                        <Button
+                            id="idRefrehshBtnReservations"
+                            press="onRefreshReservations"
+                            icon="sap-icon://synchronize"
+                        />
+                        <SearchField
+                            id="idSearchFieldFromHUNumbers"
+                            liveChange="onLiveHUNumbersList"
+                            placeholder="Search Anything..."
+                            width="25%"
+                        />
+                    </Toolbar>
+                    <Toolbar id="idToolBarHeading">
+                        <Title
+                            id="idTextTitle"
+                            text="Table Contents:-"
+                        />
+                    </Toolbar>
+                    <Table
+                        id="idHuListTable"
+                        width="100%"
+                    >
+                        <columns>
+                            <Column id="IDGenColumn001">
+                                <Text
+                                    id="IDGenText001"
+                                    text="Serial No:"
+                                    class="HedingNameColor"
                                 />
-                                <ToolbarSpacer id="IDGenToolbar345" />
+                            </Column>
+                            <Column id="IDGenColumn002">
+                                <Text
+                                    id="IDGenText002"
+                                    text="HU Number:"
+                                    class="HedingNameColor"
+                                />
+                            </Column>
+                            <Column id="IDGenColumn003">
+                                <Text
+                                    id="IDGenText003"
+                                    text="Product:"
+                                    class="HedingNameColor"
+                                />
+                            </Column>
+                            <Column id="IDGenColumn004">
+                                <Text
+                                    id="IDGenText004"
+                                    text="Product Description:"
+                                    class="HedingNameColor"
+                                />
+                            </Column>
+                            <Column id="IDGenColumn005">
+                                <Text
+                                    id="IDGenText005"
+                                    text="Quantity:"
+                                    class="HedingNameColor"
+                                />
+                            </Column>
+                            <Column id="IDGenColumn006">
+                                <Text
+                                    id="IDGenText006"
+                                    text="Units of Measurement:"
+                                    class="HedingNameColor"
+                                />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem
+                                id="IDGenHuNumbersColumnListItem1"
+                                class="AlternateRowColor"
+                            >
+                                <cells>
+                                    <Text
+                                        id="IDGenHunoListText1"
+                                        text="{Vendorname}"
+                                    />
+                                    <Text
+                                        id="IDGenHunoListText2"
+                                        text="{Vendornumber}"
+                                    />
+                                    <Text
+                                        id="IDGenHunoListText3"
+                                        text="{Drivername}"
+                                    />
+                                    <Text
+                                        id="IDGenHunoListText4"
+                                        text="{Drivernumber}"
+                                    />
+                                    <Text
+                                        id="IDGenHunoListText5"
+                                        text="{Vehicletype}"
+                                    />
+                                    <Text
+                                        id="IDGenHunoListText6"
+                                        text="{Vehiclenumber}"
+                                    />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </VBox>
+            </ScrollContainer>
+            <ScrollContainer
+                id="idPage4NewHUNumber"
+                horizontal="false"
+                vertical="true"
+                height="100%"
+                class="sapUiContentPadding"
+                visible="false"
+            >
+                <Button
+                    id="idBackButton"
+                    press="onBackBtnPressNewHUNumber"
+                    icon="sap-icon://nav-back"
+                    type="Transparent"
+                    class="sapUiTinyMarginBottom"
+                />
+                <form:SimpleForm
+                    id="SimpleFormToolbar"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                    ariaLabelledBy="Title1"
+                >
+                    <form:toolbar>
+                        <Toolbar
+                            id="TB1"
+                            class="HeaderToolBar"
+                        >
+                            <Title
+                                id="Title1"
+                                text="NEW HU NUMBER:"
+                            />
+                        </Toolbar>
+                    </form:toolbar>
+                    <form:content>
+                        <Toolbar
+                            id="IDGenToolbar1"
+                            ariaLabelledBy="Title2"
+                        >
+                            <Title
+                                id="Title2"
+                                text="Add New HU Number:"
+                            />
+                        </Toolbar>
+                        <Label
+                            id="IDGenLabel1"
+                            text="Product"
+                            required="true"
+                            class="ClassLableroot1"
+                        />
+                        <Input
+                            id="idInputProduct"
+                            width="80%"
+                        />
+                        <Label
+                            id="IDGenLabel2"
+                            text="Quantity"
+                            required="true"
+                            class="ClassLableroot1"
+                        />
+                        <Input
+                            id="idInputQty"
+                            width="auto"
+                            class="sapUiTinyMarginEnd"
+                        />
+                        <Text
+                            id="idTextUom"
+                            text="UOM."
+                            class="UnitsofMeasure"
+                        />
+                        <Label
+                            id="IDGenLabel3"
+                            text="Packaging Matirial"
+                            required="true"
+                            class="ClassLableroot1"
+                        />
+                        <Input
+                            id="idPackagingMaterial"
+                            width="80%"
+                        />
+                        <Label
+                            id="IDGenLabel4"
+                            text="Batch"
+                            required="true"
+                            class="ClassLableroot1"
+                        />
+                        <Input
+                            id="idBatch"
+                            width="80%"
+                        />
+                        <Label
+                            id="IDGenLabel5"
+                            text="Best Before Date"
+                            required="true"
+                            class="ClassLableroot1"
+                        />
+                        <DatePicker
+                            id="idDatePickerBBD"
+                            width="80%"
+                        />
+                        <Label
+                            id="IDGenLabel6"
+                            text="Manufacturing Date"
+                            required="true"
+                            class="ClassLableroot1"
+                        />
+                        <Input
+                            id="idManufacturingDate"
+                            width="80%"
+                        />
+                        <Label
+                            id="IDGenLabel7"
+                            text="Expiry Date"
+                            required="true"
+                            class="ClassLableroot1"
+                        />
+                        <Input
+                            id="idExpiryDate"
+                            width="80%"
+                        />
+                        <Label
+                            id="IDGenLabel8"
+                            text="COO"
+                            required="true"
+                            class="ClassLableroot1"
+                        />
+                        <Input
+                            id="idCOO"
+                            width="80%"
+                        />
+                        <HBox
+                            id="IDGenHBox2"
+                            justifyContent="End"
+                        >
+                            <Button
+                                id="IDGenButton5"
+                                text="Enter"
+                                press="onEnterNewHUNUmberPress"
+                                class="NewHUNUmber"
+                            />
+                            <Button
+                                id="IDGenButton6"
+                                text="Clear"
+                                press="onClearNewHUNumberPress"
+                                class="ClearNewHUNumber"
+                            />
+                        </HBox>
+                    </form:content>
+                </form:SimpleForm>
+            </ScrollContainer>
+            <ScrollContainer
+                id="idPage5VerifyHUNumber"
+                horizontal="false"
+                vertical="true"
+                height="100%"
+                class="sapUiContentPadding"
+                visible="false"
+            >
+                <Button
+                    id="idBackBtnPressVerifyHUNumber"
+                    press="onBackPressHUDetails"
+                    icon="sap-icon://nav-back"
+                    type="Transparent"
+                    class="backButtonMargin"
+                />
+                <VBox
+                    id="idVerifyHuNumberContainer"
+                    class="verifyHuNumberContainer"
+                    justifyContent="Center"
+                >
+                    <Title
+                        id="idVerifyHuNumberTitle"
+                        text="Verify HU Number"
+                        level="H2"
+                        class="formHeader"
+                    />
+                    <VBox
+                        id="idVerifyHuNumberBox"
+                        class="verifyHuNumberBox"
+                    >
+                        <form:SimpleForm
+                            id="idSimpleFormVerifyHuNumber"
+                            layout="ResponsiveGridLayout"
+                            labelSpanL="4"
+                            labelSpanM="4"
+                            columnsL="1"
+                            columnsM="1"
+                        >
+                            <Label
+                                id="idHUNumber"
+                                text="HU Number"
+                                class="formLabel"
+                            />
+                            <Input
+                                id="idHuInput"
+                                class="formInput"
+                            />
+                            <Label
+                                id="idDeliverynumber"
+                                text="Delivery Number"
+                                class="formLabel"
+                            />
+                            <Input
+                                id="idDeliveryInput"
+                                class="formInput"
+                            />
+                            <Label
+                                id="idItemNumber"
+                                text="Item Number"
+                                class="formLabel"
+                            />
+                            <Input
+                                id="idItemNoInput"
+                                class="formInput"
+                            />
+                            <HBox
+                                id="idVBoxbuttonContainer"
+                                class="buttonContainer"
+                                justifyContent="End"
+                            >
                                 <Button
-                                    id="idRefrehshBtnReservations"
-                                    press="onRefreshReservations"
-                                    icon="sap-icon://synchronize"
+                                    id="idGrBtn"
+                                    text="GR"
+                                    press="onGRBtnPressVerifyHUNumber"
+                                    class="formButton"
                                 />
-                                <SearchField
-                                    id="idSearchFieldFromHUNumbers"
-                                    liveChange="onLiveHUNumbersList"
-                                    placeholder="Search Anything..."
-                                    width="25%"
+                                <Button
+                                    id="idUnloadBtn"
+                                    text="Unload"
+                                    press="onUnloadPress"
+                                    class="formButton"
                                 />
-                            </Toolbar>
-                        </form:toolbar>
-                        <form:content>
-                            <Toolbar
-                                id="IDGenToolbar4"
-                                ariaLabelledBy="Title2"
-                            >
-                                <Title
-                                    id="Title5"
-                                    text="HU Numbers List:"
-                                />
-                            </Toolbar>
-                            <Table
-                                id="idHuListTable"
-                                width="100%"
-                                items="{/ZEWM_T_RESERVSSet}"
-                            >
-                                <columns>
-                                    <Column id="IDGenColumn001">
-                                        <Text
-                                            id="IDGenText001"
-                                            text="Serial No:"
-                                            class="HedingNameColor"
-                                        />
-                                    </Column>
-                                    <Column id="IDGenColumn002">
-                                        <Text
-                                            id="IDGenText002"
-                                            text="HU Number:"
-                                            class="HedingNameColor"
-                                        />
-                                    </Column>
-                                    <Column id="IDGenColumn003">
-                                        <Text
-                                            id="IDGenText003"
-                                            text="Product:"
-                                            class="HedingNameColor"
-                                        />
-                                    </Column>
-                                    <Column id="IDGenColumn004">
-                                        <Text
-                                            id="IDGenText004"
-                                            text="Product Discrption:"
-                                            class="HedingNameColor"
-                                        />
-                                    </Column>
-                                    <Column id="IDGenColumn005">
-                                        <Text
-                                            id="IDGenText005"
-                                            text="Quantity:"
-                                            class="HedingNameColor"
-                                        />
-                                    </Column>
-                                    <Column id="IDGenColumn006">
-                                        <Text
-                                            id="IDGenText006"
-                                            text="Units of Measur:"
-                                            class="HedingNameColor"
-                                        />
-                                    </Column>
-                                </columns>
-                                <items>
-                                    <ColumnListItem
-                                        id="IDGenAvailColumnListItem1"
-                                    >
-                                        <cells>
-                                            <Text
-                                                id="IDGenAvailText1"
-                                                text="{Vendorname}"
-                                            />
-                                            <Text
-                                                id="IDGenAvailText2"
-                                                text="{Vendornumber}"
-                                            />
-                                            <Text
-                                                id="IDGenAvailText3"
-                                                text="{Drivername}"
-                                            />
-                                            <Text
-                                                id="IDGenAvailText4"
-                                                text="{Drivernumber}"
-                                            />
-                                            <Text
-                                                id="IDGenAvailText5"
-                                                text="{Vehicletype}"
-                                            />
-                                            <Text
-                                                id="IDGenAvailText6"
-                                                text="{Vehiclenumber}"
-                                            />
-                                            <Text
-                                                id="IDGenAvailText7"
-                                                text="{Servicetype}"
-                                            />
-                                            <Text
-                                                id="IDGenAvailText8"
-                                                text="{Intime}"
-                                            />
-                                        </cells>
-                                    </ColumnListItem>
-                                </items>
-                            </Table>
-                        </form:content>
-                    </form:SimpleForm>
+                            </HBox>
+                        </form:SimpleForm>
+                    </VBox>
                 </VBox>
             </ScrollContainer>
         </tnt:mainContents>
