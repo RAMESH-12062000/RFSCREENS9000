@@ -123,47 +123,49 @@
                 class="sapUiContentPadding"
                 visible="false"
             >
+                <Button
+                    id="idBackBtn"
+                    press="onBackPressHUDetails"
+                    class="sapUiTinyMarginBottom"
+                    icon="sap-icon://nav-back"
+                    type="Transparent"
+                />
                 <VBox
-                    id="idVBoxBackBtn"
-                    class="sapUiSmallMargin"
+                    id="idSecondPageContainer"
+                    class="SecondPageContainer"
+                    justifyContent="Center"
                 >
-                    <!-- Back Button -->
-                    <Button
-                        id="idBackBtn"
-                        press="onBackPressHUDetails"
-                        class="sapUiTinyMarginBottom"
-                        icon="sap-icon://nav-back"
-                        type="Transparent"
+                    <Title
+                        id="idSecondPageTitle"
+                        text="Second Page"
+                        level="H2"
+                        class="SecondPageformHeader"
                     />
-                </VBox>
-
-                <!-- Centered Form Box -->
-                <VBox
-                    id="idCenteredFormBox"
-                    class="centeredFormBox"
-                >
-                    <!-- Form Box to hold the input fields -->
                     <VBox
-                        id="idFormBox"
-                        class="sapUiSmallMargin formBox"
+                        id="idSecondBox"
+                        class="SecondFormBox"
                     >
-                        <!-- SrSc HU Section -->
-                        <HBox class="sapUiSmallMarginBottom">
+                        <form:SimpleForm
+                            id="idSimpleFormSecondPage"
+                            layout="ResponsiveGridLayout"
+                            labelSpanL="4"
+                            labelSpanM="4"
+                            columnsL="1"
+                            columnsM="1"
+                        >
                             <Label
+                                id="idSecondPageLable1"
                                 text="SrSc HU"
-                                class="sapUiSmallMarginEnd"
+                                class="labelStyleSecondPage"
                             />
                             <Input
                                 id="idSrScHuInput"
                                 width="10rem"
                             />
-                        </HBox>
-
-                        <!-- Dst Bin Section with Storage Type, Section, and Bin -->
-                        <HBox class="sapUiSmallMarginBottom">
                             <Label
+                                id="idSecondPageLable2"
                                 text="Dst Bin"
-                                class="sapUiSmallMarginEnd"
+                                class="labelStyleSecondPage"
                             />
                             <Input
                                 id="idStorageTypeInput"
@@ -171,40 +173,45 @@
                                 width="5rem"
                                 class="sapUiTinyMarginEnd"
                             />
+                            <Label
+                                id="idSecondPageLable3"
+                                text="Sec"
+                                class="labelStyleSecondPage"
+                            />
                             <Input
                                 id="idSectionInput"
                                 placeholder="Sec"
                                 width="5rem"
                                 class="sapUiTinyMarginEnd"
                             />
+                            <Label
+                                id="idSecondPageLable4"
+                                text="Bin"
+                                class="labelStyleSecondPage"
+                            />
                             <Input
                                 id="idBinInput"
                                 placeholder="Bin"
                                 width="7rem"
                             />
-                        </HBox>
-
-                        <!-- Dest Hu Section -->
-                        <HBox class="sapUiSmallMarginBottom">
-                            <Label
-                                text="Dest Hu"
-                                class="sapUiSmallMarginEnd"
-                            />
-                            <Input
-                                id="idDestHuInput"
-                                width="15rem"
-                            />
-                        </HBox>
-                        <Button
-                            id="idBtnHuListBtn"
-                            text="HuList"
-                            press="onPressHUListTable"
-                        />
-                        <Button
-                            id="idBtnNewHUNumberBtn"
-                            text="New HUNumber"
-                            press="onPressNewHUNumberBtn"
-                        />
+                            <HBox
+                                id="idHBoxSecondPage"
+                                class="buttonContainer"
+                                justifyContent="End"
+                            >
+                                <Button
+                                    id="idBtnHuListBtn"
+                                    text="HuList"
+                                    press="onPressHUListTable"
+                                    class="ButtonsSpaceSecondPage"
+                                />
+                                <Button
+                                    id="idBtnNewHUNumberBtn"
+                                    text="New HUNumber"
+                                    press="onPressNewHUNumberBtn"
+                                />
+                            </HBox>
+                        </form:SimpleForm>
                     </VBox>
                 </VBox>
             </ScrollContainer>

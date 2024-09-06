@@ -203,20 +203,20 @@
 }
 
 /* ScrollContainer Page 5 & Page 6 & Page 7 CSS methods */
-.verifyHuNumberContainer, .MainVBoxGR, .MainVBoxUnLoad {
+.SecondPageContainer, .verifyHuNumberContainer, .MainVBoxGR, .MainVBoxUnLoad {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 2rem auto;
 }
 /* Form Header Styling */
-.formHeader,.formHeaderGR, .formHeaderUnLoad {
+.SecondPageformHeader, .formHeader,.formHeaderGR, .formHeaderUnLoad {
   text-align: center;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 /* Box around the form */
-.verifyHuNumberBox, .GoodsReceiptFormBox, .UnLoadPageFormBox {
+.SecondFormBox, .verifyHuNumberBox, .GoodsReceiptFormBox, .UnLoadPageFormBox {
   border: 2px solid black;
   padding: 20px;
   border-radius: 8px;
@@ -231,11 +231,14 @@
 .formButton {
   margin-left: 1rem;
 }
+.ButtonsSpaceSecondPage {
+  margin-right: 1rem;
+}
 @media (max-width: 600px) {
-  .verifyHuNumberContainer,.MainVBoxGR, .MainVBoxUnLoad {
+  .SecondPageContainer, .verifyHuNumberContainer,.MainVBoxGR, .MainVBoxUnLoad {
     margin: 1rem;
   }
-  .verifyHuNumberBox,.GoodsReceiptFormBox, .UnLoadPageFormBox {
+  .SecondFormBox, .verifyHuNumberBox,.GoodsReceiptFormBox, .UnLoadPageFormBox {
     padding: 15px; /* Adjust padding for mobile */
     width: 100%; /* Ensure full width with some margin on the sides */
     margin: 0 auto; /* Center the box */
