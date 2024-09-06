@@ -53,6 +53,42 @@ sap.ui.define(
         oScrollContainer4.setVisible(true);
       },
 
+      //Back Btn from ScrollContainer Page 5=>idPage4NewHUNumber
+      onBackPressVerifyHUNumber: function () {
+        var oScrollContainer5 = this.byId("idPage5VerifyHUNumber");
+        var oScrollContainer4 = this.byId("idPage4NewHUNumber");
+
+        // show the HUDetails Page2
+        oScrollContainer4.setVisible(true);
+
+        //Hide the NewHuNumber Page3
+        oScrollContainer5.setVisible(false);
+      },
+
+      //Back Btn from ScrollContainer Page 6=>idPage6GoodsReceiptGR
+      onBackPressGoodsReceipt: function () {
+        var oScrollContainer6 = this.byId("idPage6GoodsReceiptGR");
+        var oScrollContainer5 = this.byId("idPage5VerifyHUNumber");
+
+        // show the VerifyHUNumber Page5
+        oScrollContainer5.setVisible(true);
+
+        //Hide the GoodsReceiptGR Page6
+        oScrollContainer6.setVisible(false);
+      },
+
+      //Back Btn from ScrollContainer Page 7=>idPage7UnLoadPage
+      onBackPressUnLoadPage: function () {
+        var oScrollContainer7 = this.byId("idPage7UnLoadPage");
+        var oScrollContainer5 = this.byId("idPage5VerifyHUNumber");
+
+        // show the UnLoadPage Page7
+        oScrollContainer5.setVisible(true);
+
+        //Hide the VerifyHuNmber Page5
+        oScrollContainer7.setVisible(false);
+      },
+
       //Submit Btn from ScrollContainer Page 1=> idPage1ScannerFormBox..
       onSubmitPress: function () {
         var oScrollContainer1 = this.byId("idPage1ScannerFormBox");
@@ -97,6 +133,28 @@ sap.ui.define(
 
         // Show the scroll container
         oScrollContainer5.setVisible(true);
+      },
+
+      //GRBtn from from ScrollContainer Page 5=>idPage6GoodsReceiptGR
+      onGRBtnPressVerifyHUNumber: function(){
+        var oScrollContainer5 = this.byId("idPage5VerifyHUNumber");
+        var oScrollContainer6 = this.byId("idPage6GoodsReceiptGR"); 
+        // Hide the form VBox
+        oScrollContainer5.setVisible(false);
+
+        // Show the scroll container
+        oScrollContainer6.setVisible(true);
+      },
+
+      //UnLoad Btn from from ScrollContainer Page 5=>idPage6GoodsReceiptGR
+      onUnloadPressVerifyHUNumber: function(){
+        var oScrollContainer5 = this.byId("idPage5VerifyHUNumber");
+        var oScrollContainer7 = this.byId("idPage7UnLoadPage"); 
+        // Hide the form VBox
+        oScrollContainer5.setVisible(false);
+
+        // Show the scroll container
+        oScrollContainer7.setVisible(true);
       }
 
     });

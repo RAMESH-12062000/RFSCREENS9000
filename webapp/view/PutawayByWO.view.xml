@@ -506,7 +506,7 @@
             >
                 <Button
                     id="idBackBtnPressVerifyHUNumber"
-                    press="onBackPressHUDetails"
+                    press="onBackPressVerifyHUNumber"
                     icon="sap-icon://nav-back"
                     type="Transparent"
                     class="backButtonMargin"
@@ -575,8 +575,151 @@
                                 <Button
                                     id="idUnloadBtn"
                                     text="Unload"
-                                    press="onUnloadPress"
+                                    press="onUnloadPressVerifyHUNumber"
                                     class="formButton"
+                                />
+                            </HBox>
+                        </form:SimpleForm>
+                    </VBox>
+                </VBox>
+            </ScrollContainer>
+            <ScrollContainer
+                id="idPage6GoodsReceiptGR"
+                horizontal="false"
+                vertical="true"
+                height="100%"
+                class="sapUiContentPadding"
+                visible="false"
+            >
+                <Button
+                    id="idBackBtnGoodsReceipt"
+                    press="onBackPressGoodsReceipt"
+                    icon="sap-icon://nav-back"
+                    type="Transparent"
+                />
+                <VBox
+                    id="idMainVBoxGR"
+                    class="MainVBoxGR"
+                    justifyContent="End"
+                >
+                    <Title
+                        id="idTitleGoodsReceipt"
+                        text="Goods Receipt"
+                        level="H2"
+                        class="formHeaderGR"
+                    />
+                    <VBox
+                        id="idGoodsReceiptFormBox"
+                        class="GoodsReceiptFormBox"
+                        justifyContent="End"
+                    >
+                        <form:SimpleForm
+                            id="idSimpleFormGR"
+                            layout="ResponsiveGridLayout"
+                            labelSpanL="4"
+                            labelSpanM="4"
+                            columnsL="1"
+                            columnsM="1"
+                        >
+                            <Label
+                                id="idPage6Label1"
+                                text="Product"
+                                class="labelStyleGR"
+                            />
+                            <Input
+                                id="idProductInput"
+                                width="12rem"
+                            />
+                            <Label
+                                id="idPage6Label2"
+                                text="Quantity"
+                                class="labelStyleGR"
+                            />
+                            <Input
+                                id="idQuantityInput"
+                                width="12rem"
+                            />
+                            <HBox
+                                id="idVBoxbuttonGR"
+                                class="buttonContainer"
+                                justifyContent="End"
+                            >
+                                <Button
+                                    id="idGrBtnforPage6"
+                                    text="GR"
+                                    press="onGRBtnPress"
+                                    class="formButton"
+                                />
+                            </HBox>
+                        </form:SimpleForm>
+                    </VBox>
+                </VBox>
+            </ScrollContainer>
+            <ScrollContainer
+                id="idPage7UnLoadPage"
+                horizontal="false"
+                vertical="true"
+                height="100%"
+                class="sapUiContentPadding"
+                visible="false"
+            >
+                <Button
+                    id="idBackBtnUnLoad"
+                    press="onBackPressUnLoadPage"
+                    icon="sap-icon://nav-back"
+                    type="Transparent"
+                />
+                <VBox
+                    id="idMainUnLoadPage"
+                    class="MainVBoxUnLoad"
+                    justifyContent="End"
+                >
+                    <Title
+                        id="idTitleUnLoadPage"
+                        text="Un Load Page"
+                        level="H2"
+                        class="formHeaderUnLoad"
+                    />
+                    <VBox
+                        id="idGoodsUnLoadPageBox"
+                        class="UnLoadPageFormBox"
+                        justifyContent="End"
+                    >
+                        <form:SimpleForm
+                            id="idSimpleFormUnLoad"
+                            layout="ResponsiveGridLayout"
+                            labelSpanL="4"
+                            labelSpanM="4"
+                            columnsL="1"
+                            columnsM="1"
+                        >
+                            <Label
+                                id="idPage7Label1"
+                                text="Product"
+                                class="labelStyleUnLoad"
+                            />
+                            <Input
+                                id="idUnLoadProductInput"
+                                width="12rem"
+                            />
+                            <Label
+                                id="idPage7Label2"
+                                text="Quantity"
+                                class="labelStyleUnLoad"
+                            />
+                            <Input
+                                id="idUnLoadQuantityInput"
+                                width="12rem"
+                            />
+                            <HBox
+                                id="idVBoxbuttonUnLoad"
+                                class="buttonContainer"
+                                justifyContent="End"
+                            >
+                                <Button
+                                    id="idUnLoadBtnforPage7"
+                                    text="UnLoad"
+                                    press="onUnLoadBtnPress"
                                 />
                             </HBox>
                         </form:SimpleForm>
